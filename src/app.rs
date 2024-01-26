@@ -10,6 +10,8 @@ pub struct App {
     pub running: bool,
     /// counter
     pub counter: u8,
+    pub messages: Vec<String>,
+    pub user_msg: String,
 }
 
 impl Default for App {
@@ -17,6 +19,8 @@ impl Default for App {
         Self {
             running: true,
             counter: 0,
+            messages: vec![],
+            user_msg: String::new(),
         }
     }
 }
@@ -45,5 +49,9 @@ impl App {
         if let Some(res) = self.counter.checked_sub(1) {
             self.counter = res;
         }
+    }
+
+    pub fn add_message(&mut self, msg: String) {
+        self.messages.push(msg);
     }
 }

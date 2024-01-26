@@ -1,6 +1,6 @@
 use irc_client::app::{App, AppResult};
 use irc_client::event::{Event, EventHandler};
-use irc_client::handler::handle_key_events;
+use irc_client::handler::*;
 use irc_client::tui::Tui;
 use std::io;
 use ratatui::backend::CrosstermBackend;
@@ -28,6 +28,7 @@ async fn main() -> AppResult<()> {
             Event::Key(key_event) => handle_key_events(key_event, &mut app)?,
             Event::Mouse(_) => {}
             Event::Resize(_, _) => {}
+            Event::Message => handle_message_event()?,
         }
     }
 
