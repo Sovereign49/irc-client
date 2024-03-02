@@ -12,6 +12,10 @@ use std::panic;
 ///
 /// It is responsible for setting up the terminal,
 /// initializing the interface and handling the draw events.
+///
+///
+/// There should be no need to modify anything in this file, check before updating the file
+
 #[derive(Debug)]
 pub struct Tui<B: Backend> {
     /// Interface to the Terminal.
