@@ -23,7 +23,7 @@ pub fn handle_key_events(key_event: KeyEvent, app: &mut App) -> AppResult<()> {
         }
         // Add message to the messages, then clears message prompt on `ENTER`
         KeyCode::Enter => {
-            app.messages.push(app.user_msg.clone());
+            app.messages.push(format!("you: {}", app.user_msg.clone()));
             app.user_msg.clear();
         }
         // Other handlers you could add here.
